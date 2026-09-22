@@ -3,118 +3,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSK Photography | Bengaluru</title>
+    <title>DSK Photography | Premium Visual & Event Studio Bengaluru</title>
     <style>
         :root {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --text-color: #e0e0e0;
-            --accent-color: #d4af37; /* Gold accent */
-            --transition: all 0.3s ease;
+            --bg-color: #0c0c0c;
+            --surface-color: #161616;
+            --border-color: #262626;
+            --text-main: #f5f5f5;
+            --text-muted: #a3a3a3;
+            --accent: #d4af37; /* Luxury Gold */
+            --accent-hover: #e5c158;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
-        header { background: rgba(18, 18, 18, 0.95); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #2a2a2a; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--accent-color); letter-spacing: 2px; }
-        nav a { color: var(--text-color); text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: var(--transition); }
-        nav a:hover { color: var(--accent-color); }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
         
-        .hero { height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/hero-bg.jpg') no-repeat center center/cover; padding: 0 20px; margin-top: 60px; }
-        .hero h1 { font-size: 3rem; color: #fff; margin-bottom: 10px; letter-spacing: 1px; }
-        .hero p { font-size: 1.2rem; color: #ccc; margin-bottom: 30px; }
-        .btn { background-color: var(--accent-color); color: #121212; padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 4px; transition: var(--transition); }
-        .btn:hover { background-color: #fff; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-        h2 { text-align: center; font-size: 2.2rem; margin-bottom: 50px; color: #fff; position: relative; }
-        h2::after { content: ''; display: block; width: 50px; height: 2px; background: var(--accent-color); margin: 10px auto 0; }
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(12, 12, 12, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 48px;
+            z-index: 1000;
+        }
 
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .gallery-item { background: var(--card-bg); border-radius: 6px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        .gallery-item img { width: 100%; height: 250px; object-fit: cover; display: block; transition: var(--transition); }
-        .gallery-item img:hover { transform: scale(1.03); }
-        .gallery-info { padding: 15px; text-align: center; font-size: 1rem; color: var(--accent-color); }
+        .logo {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
 
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .service-card { background: var(--card-bg); padding: 30px; border-radius: 6px; text-align: center; border-top: 3px solid var(--accent-color); }
-        .service-card h3 { margin-bottom: 15px; color: #fff; }
+        .logo span {
+            color: var(--accent);
+        }
 
-        .contact-box { background: var(--card-bg); padding: 40px; border-radius: 8px; text-align: center; max-width: 600px; margin: 0 auto; }
-        .contact-box p { margin-bottom: 20px; color: #ccc; }
-        .contact-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .whatsapp-btn { background-color: #25d366; color: #fff; }
-        .whatsapp-btn:hover { background-color: #1ebe5d; color: #fff; }
+        nav {
+            display: flex;
+            gap: 32px;
+        }
 
-        footer { text-align: center; padding: 30px; background: #0a0a0a; color: #777; font-size: 0.85rem; border-top: 1px solid #222; }
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 10%;
+            background: linear-gradient(180deg, rgba(12,12,12,0.4) 0%, rgba(12,12,12,0.95) 100%), url('images/hero-bg.jpg') no-repeat center center/cover;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            max-width: 800px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 550px;
+            margin-bottom: 40px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: #0c0c0c;
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: transparent;
+            color: var(--accent);
+        }
+
+        /* Sections Layout */
+        section {
+            padding: 120px 10%;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header span {
+            color: var(--accent);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .gallery-item {
+            background: var(--surface-color);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .image-wrapper {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-content {
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .gallery-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .gallery-content span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--surface-color);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .whatsapp-btn {
+            background-color: #25d366;
+            color: #ffffff;
+            justify-content: center;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ebe5d;
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 10%;
+            background: #080808;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 20px 24px; }
+            nav { display: none; }
+            .hero { padding: 0 24px; }
+            section { padding: 80px 24px; }
+            .contact-container { grid-template-columns: 1fr; padding: 30px; }
+            footer { flex-direction: column; gap: 16px; text-align: center; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">DSK PHOTOGRAPHY</div>
+        <div class="logo">DSK <span>Photography</span></div>
         <nav>
-            <a href="#gallery">Portfolio</a>
+            <a href="#portfolio">Portfolio</a>
             <a href="#services">Services</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <div class="hero">
-        <h1>Capturing Your Best Moments</h1>
-        <p>Event coverage, candid video production, and custom photo album design in Bengaluru.</p>
-        <a href="#contact" class="btn">Book an Enquiry</a>
-    </div>
+    <section class="hero" id="home">
+        <div class="hero-badge">Bengaluru, India</div>
+        <h1>Capturing Stories Through the Lens</h1>
+        <p>Specialized event coverage, candid video production, and custom high-end photo album design tailored for your milestones.</p>
+        <div class="btn-group">
+            <a href="#contact" class="btn">Book an Enquiry</a>
+            <a href="#portfolio" class="btn btn-outline">Explore Work</a>
+        </div>
+    </section>
 
-    <section id="gallery">
-        <h2>Featured Portfolio</h2>
+    <section id="portfolio">
+        <div class="section-header">
+            <span>Selected Portfolio</span>
+            <h2>Visual Showcase</h2>
+        </div>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="images/photo1.jpg" alt="Event Coverage">
-                <div class="gallery-info">Event Coverage</div>
+                <div class="image-wrapper">
+                    <img src="images/photo1.jpg" alt="Event Coverage">
+                </div>
+                <div class="gallery-content">
+                    <h3>Event Coverage</h3>
+                    <span>Bengaluru</span>
+                </div>
             </div>
             <div class="gallery-item">
-                <img src="images/photo2.jpg" alt="Candid Portraits">
-                <div class="gallery-info">Candid Portraits</div>
+                <div class="image-wrapper">
+                    <img src="images/photo2.jpg" alt="Candid Portraits">
+                </div>
+                <div class="gallery-content">
+                    <h3>Candid Portraits</h3>
+                    <span>Studio & Outdoor</span>
+                </div>
             </div>
             <div class="gallery-item">
-                <img src="images/photo3.jpg" alt="Custom Albums">
-                <div class="gallery-info">Album Design</div>
+                <div class="image-wrapper">
+                    <img src="images/photo3.jpg" alt="Custom Albums">
+                </div>
+                <div class="gallery-content">
+                    <h3>Custom Album Design</h3>
+                    <span>Curated Spreads</span>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="services">
-        <h2>What We Offer</h2>
+        <div class="section-header">
+            <span>What We Offer</span>
+            <h2>Our Expertise</h2>
+        </div>
         <div class="services-grid">
             <div class="service-card">
                 <h3>Event Shoots</h3>
-                <p>Professional coverage for celebrations, corporate gatherings, and functions across Bengaluru.</p>
+                <p>Professional multi-angle coverage for celebrations, corporate gatherings, and live functions across Bengaluru with pristine clarity.</p>
             </div>
             <div class="service-card">
-                <h3>Candid Production</h3>
-                <p>Natural, storytelling video production capturing genuine emotions and highlights.</p>
+                <h3>Candid Video Production</h3>
+                <p>Cinematic storytelling capturing authentic emotions, natural movements, and highlights with professional grade editing.</p>
             </div>
             <div class="service-card">
-                <h3>Photo Album Design</h3>
-                <p>Premium physical photo album curation, layout styling, and high-end printing specifications.</p>
+                <h3>Photo Album Curation</h3>
+                <p>Bespoke physical album layouts, premium binding, and high-end printing specifications designed to last generations.</p>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <h2>Start an Enquiry</h2>
-        <div class="contact-box">
-            <p>Ready to discuss your upcoming project or event? Reach out directly via WhatsApp or Email.</p>
+        <div class="contact-container">
+            <div class="contact-info">
+                <span>Get in Touch</span>
+                <h3>Let's Discuss Your Project</h3>
+                <p>Share your brief, event dates, or requirements. We respond quickly to coordinate availability and project scopes.</p>
+                <div class="contact-details">
+                    <div>📍 Base: Bengaluru, Karnataka, India</div>
+                    <div>✉️ Email: karthikdsk619@gmail.com</div>
+                </div>
+            </div>
             <div class="contact-actions">
-                <!-- Replace 919738867732 with your actual phone number -->
+                <!-- Replace 919738867732 with your actual WhatsApp phone number -->
                 <a href="https://wa.me/919738867732?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20DSK%20Photography%20services." class="btn whatsapp-btn" target="_blank">Chat on WhatsApp</a>
-                <a href="mailto:info@dskphotography.in" class="btn">Send an Email</a>
+                <a href="mailto:karthikdsk619@gmail.com" class="btn btn-outline" style="text-align: center; justify-content: center;">Send via Email</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 DSK Photography. Bengaluru, Karnataka, India. All rights reserved.</p>
+        <p>&copy; 2026 DSK Photography. All rights reserved.</p>
+        <p>Bengaluru, Karnataka</p>
     </footer>
 
 </body>
